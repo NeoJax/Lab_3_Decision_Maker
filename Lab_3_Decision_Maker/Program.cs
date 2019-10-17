@@ -25,14 +25,15 @@ namespace Lab_3_Decision_Maker
                 {
                     Console.WriteLine("Hello, " + userName + ". Please enter a number between 1 and 100. Also enter -1 to close the program.");
                     userInput = int.Parse(Console.ReadLine());
-                    if (!(0 < userInput) && !(userInput < 101))
+                    if (userInput == -1)
+                    {
+                        moreNumbers = false;
+                        fits = true;
+                    }
+                    else if(!(0 < userInput && userInput < 101))
                     {
                         fits = false;
                         Console.WriteLine(userName + ", your number does not fit within the given criteria.");
-                    }
-                    else if (userInput == -1)
-                    {
-                        moreNumbers = false;
                     }
                     else
                     {
@@ -57,7 +58,7 @@ namespace Lab_3_Decision_Maker
                         Console.WriteLine(userName + " your number is " + userInput + " and is even");
                     }
                 }
-                else if (userInput % 2 != 0)
+                else if (userInput % 2 != 0 && userInput != -1)
                 {
                     if (userInput <= 60)
                     {
